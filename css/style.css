@@ -51,7 +51,7 @@ h1 {
   font-family: 'Staatliches', cursive;
 }
 
-.player button.active {
+.active {
   box-shadow: 5px 5px rgba(238, 238, 238, 0.5);
 }
 
