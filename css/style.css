@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+
+*{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  background: rgb(0, 178, 201);
+  font-family: 'Staatliches', cursive;
+  font-size: 30px;
+}
+
+h1 {
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.grid-container{
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  grid-gap: 10px;
+  background: rgba(47, 47, 47, 0.6);  
+  border: none;
+}
+
+.box {
+  border: none;
+  background: rgb(0, 178, 201)
+}
+
+.player {
+  margin: 50px 0;
+}
+
+.player button {
+  border: 2px solid #eee;
+  padding: 0 50px;
+  margin: 20px;
+  border-radius: 5px;
+  background: transparent;
+  height: 50px;
+  font-size: 20px;
+  font-family: 'Staatliches', cursive;
+}
+
+.player button.active {
+  box-shadow: 5px 5px rgba(238, 238, 238, 0.5);
+}
+
+.fa-times{
+  color: #e6bf9e;
+  font-size: 8em
+}
+
+.fa-circle {
+  font-size: 7em;
+  color: #2a2a2a; 
+}
+
