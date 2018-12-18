@@ -9,7 +9,7 @@ let score = {
   O: [],
 };
 
-let winningCombos = [
+const winningCombos = [
   [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]
   ];
 
@@ -29,16 +29,31 @@ function assignPlayer() {
 let $cross = '<i class="fas fa-times"></i>'
 let $noughts = '<i class="far fa-circle"></i>'
 
-function win() {
+const win = function () {
   for (let i = 0; i < winningCombos.length; i++) {
     let currentCombos = winningCombos[i];
     let Winner_X = score.X.includes(currentCombos[0]) && score.X.includes(currentCombos[1]) && score.X.includes(currentCombos[2]);
     let Winner_O = score.O.includes(currentCombos[0]) && score.O.includes(currentCombos[1]) && score.O.includes(currentCombos[2]);
-    
+
     if (Winner_X) {
       console.log('X Win');
     } else if (Winner_O) {
       console.log('O Win');
-    } 
+    } else if(currentCombos[i] > 5){
+      console.log('draw');
+    }
   }
+}
+
+const check = function (element) {
+  if (game.currentplayer === 'X') {
+    $(element).html($cross);
+    score.X.push(Number($(element).attr('id')));
+    game.currentplayer = 'O';
+  } else {
+    $(element).html($noughts);
+    score.O.push(Number($(element).attr('id')));
+    game.currentplayer = 'X';
+  };
+  $(element).attr('disabled', true);
 }
