@@ -10,7 +10,7 @@ let score = {
 };
 
 let winningCombos = [
-  [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 6], [2, 5, 7], [3, 6, 9], [1, 5, 9], [3, 5, 7]
+  [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]
   ];
 
 function assignPlayer() {
@@ -28,3 +28,17 @@ function assignPlayer() {
 
 let $cross = '<i class="fas fa-times"></i>'
 let $noughts = '<i class="far fa-circle"></i>'
+
+function win() {
+  for (let i = 0; i < winningCombos.length; i++) {
+    let currentCombos = winningCombos[i];
+    let Winner_X = score.X.includes(currentCombos[0]) && score.X.includes(currentCombos[1]) && score.X.includes(currentCombos[2]);
+    let Winner_O = score.O.includes(currentCombos[0]) && score.O.includes(currentCombos[1]) && score.O.includes(currentCombos[2]);
+    
+    if (Winner_X) {
+      console.log('X Win');
+    } else if (Winner_O) {
+      console.log('O Win');
+    } 
+  }
+}
