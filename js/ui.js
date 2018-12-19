@@ -31,6 +31,6 @@ $(document).ready(function () {
   $('#Reset').on('click', function () {
     reset();
   })
-  
+  $('.winner').hide();
   fireworks();
 });

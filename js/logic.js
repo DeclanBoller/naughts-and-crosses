@@ -1,6 +1,5 @@
 let $cross = '<i class="fas fa-times"></i>';
 let $noughts = '<i class="far fa-circle"></i>';
-let $winnerConf = $('.winner');
 
 let game = {
   currentplayer: 'X',
@@ -48,6 +47,24 @@ let reset = function () {
   game.moves = 0;
 };
 
+let fireworks = function () {
+  $('.winner').append(canvas);
+  canvas.width = SCREEN_WIDTH;
+  canvas.height = SCREEN_HEIGHT;
+  setInterval(launch, 200);
+  setInterval(loop, 700 / 50);
+}
+
+let fireworksDisplay = function () {
+  $('.winner').fadeIn(1500);
+  setTimeout(function () {
+    $('.winner').fadeOut(1500);
+    reset();
+  }, 8000);;
+};
+
+
+
 const win = function () {
   for (let i = 0; i < winningCombos.length; i++) {
     let currentCombos = winningCombos[i];
@@ -57,15 +74,19 @@ const win = function () {
     if (Winner_X) {
       $('.grid-container .box').attr('disabled', true);
       game.gamesWonX++;
+      fireworksDisplay();
       $('#PlayerX').html(game.gamesWonX);
     } else if (Winner_O) {
       $('.grid-container .box').attr('disabled', true);
       game.gamesWonO++;
+      fireworksDisplay();
       $('#PlayerO').html(game.gamesWonO);
     }
   }
   if (game.moves >= 9) {
-    return
+    setTimeout(function () {
+      reset();
+    }, 3000)
   }
 }
 
@@ -87,11 +108,3 @@ const check = function (element) {
   game.moves++
   win();
 };
-
-let fireworks = function () {
-  $('.winner').append(canvas);
-  canvas.width = SCREEN_WIDTH;
-  canvas.height = SCREEN_HEIGHT;
-  setInterval(launch, 200);
-  setInterval(loop, 700 / 50);
-}
