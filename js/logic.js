@@ -1,5 +1,6 @@
 let $cross = '<i class="fas fa-times"></i>';
 let $noughts = '<i class="far fa-circle"></i>';
+let $winnerConf = $('.winner');
 
 let game = {
   currentplayer: 'X',
@@ -86,3 +87,11 @@ const check = function (element) {
   game.moves++
   win();
 };
+
+let fireworks = function () {
+  $('.winner').append(canvas);
+  canvas.width = SCREEN_WIDTH;
+  canvas.height = SCREEN_HEIGHT;
+  setInterval(launch, 200);
+  setInterval(loop, 700 / 50);
+}
