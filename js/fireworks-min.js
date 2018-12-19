@@ -13,15 +13,6 @@ var SCREEN_WIDTH = $('.winner').innerWidth(),
     MAX_PARTICLES = 800,
     colorCode = 0;
 
-// update mouse position
-//$(document).mousemove(function(e) {
-//    e.preventDefault();
-//    mousePos = {
-//        x: e.clientX,
-//        y: e.clientY
-//    };
-//});
-
 // launch more rockets!!!
 $(document).mousedown(function(e) {
     for (var i = 0; i < 5; i++) {

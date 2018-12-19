@@ -1,23 +1,58 @@
-let $cross = '<i class="fas fa-times"></i>';
-let $noughts = '<i class="far fa-circle"></i>';
+const $cross = '<i class="fas fa-times"></i>';
+const $noughts = '<i class="far fa-circle"></i>';
 
-let game = {
+
+
+const game = {
   currentplayer: 'X',
   player1: '',
   player2: '',
   moves: 0,
   gamesWonX: 0,
   gamesWonO: 0,
-}
+};
 
-let score = {
+
+
+const score = {
   X: [],
   O: [],
 };
 
+
+
 const winningCombos = [
-  [1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [1, 4, 7],
+  [2, 5, 8],
+  [3, 6, 9],
+  [1, 5, 9],
+  [3, 5, 7],
   ];
+
+
+
+const fireworks = function () {
+  $('.winner').append(canvas);
+  canvas.width = SCREEN_WIDTH;
+  canvas.height = SCREEN_HEIGHT;
+  setInterval(launch, 200);
+  setInterval(loop, 700 / 50);
+};
+
+
+
+const fireworksDisplay = function () {
+  $('.winner').fadeIn(1500);
+  setTimeout(function () {
+    $('.winner').fadeOut(1500);
+    reset();
+  }, 5000);;
+};
+
+
 
 function assignPlayer() {
   $('#X').on('click', function () {
@@ -26,17 +61,19 @@ function assignPlayer() {
     game.currentplayer = 'X';
     $('#X').addClass('active');
     $('#O').removeClass('active');
-  })
+  });
   $('#O').on('click', function () {
     game.player1 = 'O';
     game.player2 = 'X';
     game.currentplayer = 'O';
     $('#O').addClass('active');
     $('#X').removeClass('active');
-  })
+  });
 };
 
-let reset = function () {
+
+
+const reset = function () {
   $('.grid-container .box').html('');
   score.X.length = 0;
   score.O.length = 0;
@@ -46,22 +83,6 @@ let reset = function () {
   $('#O').removeClass('active');
   game.moves = 0;
   $('h1').html('Noughts &amp; Crosses').hide().fadeIn(2500);
-};
-
-let fireworks = function () {
-  $('.winner').append(canvas);
-  canvas.width = SCREEN_WIDTH;
-  canvas.height = SCREEN_HEIGHT;
-  setInterval(launch, 200);
-  setInterval(loop, 700 / 50);
-}
-
-let fireworksDisplay = function () {
-  $('.winner').fadeIn(1500);
-  setTimeout(function () {
-    $('.winner').fadeOut(1500);
-    reset();
-  }, 5000);;
 };
 
 
@@ -86,13 +107,15 @@ const win = function () {
       $('h1').html('Noughts Wins').hide().fadeIn(2000);
     }
   }
-  if (game.moves >= 9) {
+  if (!Winner_O && !Winner_X && game.moves === 9) {
     $('h1').html('Draw').hide().fadeIn(2000);
     setTimeout(function () {
       reset();
-    }, 5000)
-  }
-}
+    }, 5000);
+  };
+};
+
+
 
 const check = function (element) {
   if (game.currentplayer === 'X') {
