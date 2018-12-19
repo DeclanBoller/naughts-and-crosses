@@ -1,7 +1,13 @@
+let $cross = '<i class="fas fa-times"></i>';
+let $noughts = '<i class="far fa-circle"></i>';
+
 let game = {
   currentplayer: 'X',
   player1: '',
   player2: '',
+  moves: 0,
+  gamesWonX: 0,
+  gamesWonO: 0,
 }
 
 let score = {
@@ -18,30 +24,46 @@ function assignPlayer() {
     game.player1 = 'X';
     game.player2 = 'O';
     game.currentplayer = 'X';
+    $('#X').addClass('active');
+    $('#O').removeClass('active');
   })
   $('#O').on('click', function () {
     game.player1 = 'O';
     game.player2 = 'X';
     game.currentplayer = 'O';
+    $('#O').addClass('active');
+    $('#X').removeClass('active');
   })
 };
 
-let $cross = '<i class="fas fa-times"></i>'
-let $noughts = '<i class="far fa-circle"></i>'
+let reset = function () {
+  $('.grid-container .box').html('');
+  score.X.length = 0;
+  score.O.length = 0;
+  $('.grid-container .box').attr('disabled', false);
+  game.currentplayer = 'X';
+  $('#X').addClass('active');
+  $('#O').removeClass('active');
+};
 
 const win = function () {
   for (let i = 0; i < winningCombos.length; i++) {
     let currentCombos = winningCombos[i];
-    let Winner_X = score.X.includes(currentCombos[0]) && score.X.includes(currentCombos[1]) && score.X.includes(currentCombos[2]);
-    let Winner_O = score.O.includes(currentCombos[0]) && score.O.includes(currentCombos[1]) && score.O.includes(currentCombos[2]);
+    var Winner_X = score.X.includes(currentCombos[0]) && score.X.includes(currentCombos[1]) && score.X.includes(currentCombos[2]);
+    var Winner_O = score.O.includes(currentCombos[0]) && score.O.includes(currentCombos[1]) && score.O.includes(currentCombos[2]);
 
     if (Winner_X) {
-      console.log('X Win');
+      $('.grid-container .box').attr('disabled', true);
+      game.gamesWonX++;
+      $('#PlayerX').html(game.gamesWonX);
     } else if (Winner_O) {
-      console.log('O Win');
-    } else if(currentCombos[i] > 5){
-      console.log('draw');
+      $('.grid-container .box').attr('disabled', true);
+      game.gamesWonO++;
+      $('#PlayerO').html(game.gamesWonO);
     }
+  }
+  if (game.moves >= 9) {
+    return draw
   }
 }
 
@@ -49,11 +71,17 @@ const check = function (element) {
   if (game.currentplayer === 'X') {
     $(element).html($cross);
     score.X.push(Number($(element).attr('id')));
+    $('#X').removeClass('active');
+    $('#O').addClass('active');
     game.currentplayer = 'O';
   } else {
     $(element).html($noughts);
     score.O.push(Number($(element).attr('id')));
     game.currentplayer = 'X';
+    $('#O').removeClass('active');
+    $('#X').addClass('active');
   };
   $(element).attr('disabled', true);
-}
+  game.moves++
+  win();
+};
