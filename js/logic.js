@@ -45,6 +45,7 @@ let reset = function () {
   $('#X').addClass('active');
   $('#O').removeClass('active');
   game.moves = 0;
+  $('h1').html('Noughts &amp; Crosses').hide().fadeIn(2500);
 };
 
 let fireworks = function () {
@@ -60,7 +61,7 @@ let fireworksDisplay = function () {
   setTimeout(function () {
     $('.winner').fadeOut(1500);
     reset();
-  }, 8000);;
+  }, 5000);;
 };
 
 
@@ -76,17 +77,20 @@ const win = function () {
       game.gamesWonX++;
       fireworksDisplay();
       $('#PlayerX').html(game.gamesWonX);
+      $('h1').html('Crosses Wins').hide().fadeIn(2000);
     } else if (Winner_O) {
       $('.grid-container .box').attr('disabled', true);
       game.gamesWonO++;
       fireworksDisplay();
       $('#PlayerO').html(game.gamesWonO);
+      $('h1').html('Noughts Wins').hide().fadeIn(2000);
     }
   }
   if (game.moves >= 9) {
+    $('h1').html('Draw').hide().fadeIn(2000);
     setTimeout(function () {
       reset();
-    }, 3000)
+    }, 5000)
   }
 }
 

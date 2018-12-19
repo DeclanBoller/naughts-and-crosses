@@ -19,8 +19,8 @@ body {
   font-size: 30px;
 }
 
-h1 {
-  position: relative;
+body h1 {
+  margin-top: 25px;
   letter-spacing: 2px;
 }
 
@@ -31,13 +31,13 @@ h1 {
   grid-gap: 10px;
   background: rgba(47, 47, 47, 0.6);
   border: none;
+  margin-bottom: 50px;
 }
 
 .winner {
   position: absolute;
-  top: 278px;
-  height: 470px;
-  width: 470px;
+  height: 480px;
+  width: 480px;
   background: black;
   overflow: hidden;
 /*  display: none;*/
@@ -50,6 +50,7 @@ h1 {
 
 .scores {
   display: flex;
+  margin: 25px 0;
 }
 
 .scores p {
@@ -61,7 +62,7 @@ span.score {
 }
 
 .player {
-  margin: 0 0 25px 0;
+  margin: 25px 0;
 }
 
 .player button {
