@@ -62,6 +62,7 @@ span.score {
   background: #FFF8F0;
   font-size: 20px;
   font-family: 'Staatliches', cursive;
+  transition: 2s all ease;
 }
 
 .player .active {
@@ -73,10 +74,12 @@ span.score {
 
 .fa-times {
   color: #F2EFE9;
-  font-size: 8em
+  font-size: 8em; 
+  transition: 0.5s all ease;
 }
 
 .fa-circle {
   font-size: 7em;
   color: #40376E;
+  transition: 0.5s all ease;
 }

@@ -44,6 +44,7 @@ let reset = function () {
   game.currentplayer = 'X';
   $('#X').addClass('active');
   $('#O').removeClass('active');
+  game.moves = 0;
 };
 
 const win = function () {
@@ -63,19 +64,19 @@ const win = function () {
     }
   }
   if (game.moves >= 9) {
-    return draw
+    return
   }
 }
 
 const check = function (element) {
   if (game.currentplayer === 'X') {
-    $(element).html($cross);
+    $(element).html($($cross).hide().fadeIn(300));
     score.X.push(Number($(element).attr('id')));
     $('#X').removeClass('active');
     $('#O').addClass('active');
     game.currentplayer = 'O';
   } else {
-    $(element).html($noughts);
+    $(element).html($($noughts).hide().fadeIn(300));
     score.O.push(Number($(element).attr('id')));
     game.currentplayer = 'X';
     $('#O').removeClass('active');
