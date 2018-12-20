@@ -40,8 +40,6 @@ const winningCombos = [
 // If OP's tile is filled *Ignore* and place in the next available spot
 
 
-
-
 // Fireworks Canvas Parameters
 const fireworks = function () {
   $('.winner').append(canvas);
@@ -102,7 +100,7 @@ const win = function () {
     var Winner_X = score.X.includes(currentCombos[0]) && score.X.includes(currentCombos[1]) && score.X.includes(currentCombos[2]);
     var Winner_O = score.O.includes(currentCombos[0]) && score.O.includes(currentCombos[1]) && score.O.includes(currentCombos[2]);
 
-// Disables Specified Button, Adds +1 to gamesWon, Sets Fireworks Display off, Changes H1
+    // Disables Specified Button, Adds +1 to gamesWon, Sets Fireworks Display off, Changes H1
     if (Winner_X) {
       $('.grid-container .box').attr('disabled', true);
       game.gamesWonX++;
@@ -119,8 +117,8 @@ const win = function () {
       return
     }
   }
-  
-// If Nothing Above Returns True, Its a Draw, Reset Count, Change H1 
+
+  // If Nothing Above Returns True, Its a Draw, Reset Count, Change H1 
   if (game.moves >= 9) {
     $('h1').html('Draw').hide().fadeIn(2000);
     setTimeout(function () {
@@ -145,10 +143,10 @@ const check = function (element) {
     $('#O').removeClass('activeO');
     $('#X').addClass('activeX');
   };
-// Disables clicked Button
+  // Disables clicked Button
   $(element).attr('disabled', true);
-// Sends +1 Moves to game.moves array
+  // Sends +1 Moves to game.moves array
   game.moves++
-// Check for Win
+  // Check for Win
   win();
 };
