@@ -45,7 +45,7 @@ const fireworks = function () {
   $('.winner').append(canvas);
   canvas.width = SCREEN_WIDTH;
   canvas.height = SCREEN_HEIGHT;
-  setInterval(launch, 100);
+  setInterval(launch, 200);
   setInterval(loop, 700 / 50);
 };
 
