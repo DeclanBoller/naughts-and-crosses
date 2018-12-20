@@ -9,8 +9,7 @@ My focus was to build a clean, working, responsive version of this game that exe
 On inspection of the code one will see two (2) main files called ui.js && logic.js. The logic.js file contains all functions/arrays and objects that are required for the game to operate, each function has a note with what it does or an explanation. The ui.js contains the click handlers and executes the code in the logic.js file.
 
 
-* To view the game in its current format as of 21/12/2018, please visit:
-https://declanboller.github.io/naughts-and-crosses/
+* To view the game in its current format as of 21/12/2018, please visit: <br> [Noughts & Crosses](https://declanboller.github.io/naughts-and-crosses/)
 
 ## 
 
@@ -26,8 +25,7 @@ https://declanboller.github.io/naughts-and-crosses/
 * Use semantic markup for HTML and CSS (adhere to best practices)
 
 
-* For a full description of the project requirements, please visit:
-https://gist.github.com/wofockham/8e959d5cfe7d120f1157
+* For a full description of the project requirements, please visit:<br>[GA Project 0 Brief](https://gist.github.com/wofockham/8e959d5cfe7d120f1157)
 
 ## 
 
