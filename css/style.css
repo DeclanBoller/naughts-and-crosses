@@ -8,12 +8,22 @@
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100vh;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: rgb(0, 0, 0);
   font-family: 'Staatliches', cursive;
   font-size: 30px;
@@ -26,13 +36,61 @@ body h1 {
 }
 
 .grid-container {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 150px 10px 150px 10px 150px;
   grid-template-columns: repeat(3, 150px);
+  -ms-grid-rows: 150px 10px 150px 10px 150px;
   grid-template-rows: repeat(3, 150px);
   grid-gap: 10px;
   background: rgba(255, 255, 255);
   border: none;
   margin-bottom: 50px;
+}
+
+.grid-container > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.grid-container > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.grid-container > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+
+.grid-container > *:nth-child(4) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+
+.grid-container > *:nth-child(5) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+
+.grid-container > *:nth-child(6) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+}
+
+.grid-container > *:nth-child(7) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+}
+
+.grid-container > *:nth-child(8) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+}
+
+.grid-container > *:nth-child(9) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
 }
 
 .winner {
@@ -53,6 +111,8 @@ body h1 {
 }
 
 .scores {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 25px 0;
 }
@@ -82,6 +142,8 @@ span#PlayerO {
   background: #FFF8F0;
   font-size: 20px;
   font-family: 'Staatliches', cursive;
+  -webkit-transition: 2s all ease;
+  -o-transition: 2s all ease;
   transition: 2s all ease;
 }
 
@@ -100,12 +162,16 @@ span#PlayerO {
 .fa-times {
   color: #09BC8A;
   font-size: 8em;
+  -webkit-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
   transition: 0.5s all ease;
 }
 
 .fa-circle {
   font-size: 7em;
   color: #E637BF;
+  -webkit-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
   transition: 0.5s all ease;
 }
 
@@ -121,9 +187,15 @@ span#PlayerO {
     font-size: 12px;
     height: 25px;
     width: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   
   .player {
@@ -132,10 +204,57 @@ span#PlayerO {
   
   .grid-container {
     margin: 25px 0 0 0;
+    -ms-grid-columns: 100px 5px 100px 5px 100px;
     grid-template-columns: repeat(3, 100px);
+    -ms-grid-rows: 100px 5px 100px 5px 100px;
     grid-template-rows: repeat(3, 100px);
     grid-gap: 5px;
     background: #eee;
+  }
+  
+  .grid-container > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+  
+  .grid-container > *:nth-child(2) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+  }
+  
+  .grid-container > *:nth-child(3) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+  }
+  
+  .grid-container > *:nth-child(4) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+  }
+  
+  .grid-container > *:nth-child(5) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+  }
+  
+  .grid-container > *:nth-child(6) {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+  }
+  
+  .grid-container > *:nth-child(7) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+  }
+  
+  .grid-container > *:nth-child(8) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+  }
+  
+  .grid-container > *:nth-child(9) {
+    -ms-grid-row: 5;
+    -ms-grid-column: 5;
   }
   
   .scores {
@@ -157,5 +276,5 @@ span#PlayerO {
   
   .winner {
   height: 350px;
-  
+  }
 }
