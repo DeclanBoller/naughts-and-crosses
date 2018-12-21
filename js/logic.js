@@ -82,14 +82,14 @@ function assignPlayer() {
 // Clears all Icons, Resets Score, Resets Move Count, Re-Enables Clicks, Sets Current Player Back to X
 const reset = function () {
   $('.grid-container .box').html('');
-  score.X.length = 0;
-  score.O.length = 0;
   $('.grid-container .box').attr('disabled', false);
-  game.currentplayer = 'X';
   $('#X').addClass('activeX');
   $('#O').removeClass('activeO');
-  game.moves = 0;
   $('h1').html('Noughts &amp; Crosses').hide().fadeIn(2500);
+  game.currentplayer = 'X';
+  game.moves = 0;
+  score.X.length = 0;
+  score.O.length = 0;
 };
 
 
@@ -139,9 +139,9 @@ const check = function (element) {
   } else {
     $(element).html($($noughts).hide().fadeIn(300));
     score.O.push(Number($(element).attr('id')));
-    game.currentplayer = 'X';
     $('#O').removeClass('activeO');
     $('#X').addClass('activeX');
+    game.currentplayer = 'X';
   };
   // Disables clicked Button
   $(element).attr('disabled', true);
